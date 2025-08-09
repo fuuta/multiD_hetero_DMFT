@@ -17,6 +17,9 @@ we use podman and uv to build clean environment.
 # Directory structure
 
 multid_rnn: main code for simulation and visualization
+
 results: destination to save simulation results
-scripts: script to reproduce figures in paper
+
+scripts: script to reproduce figures in paper (some parts are in preparation for release)
+
 TEMP: temporary information e.g. logs
