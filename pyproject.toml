@@ -1,0 +1,43 @@
+[project]
+name = "multidrnn"
+version = "0.1.0"
+description = "Simulate Multi Dimentional Random Neural Network"
+readme = "README.md"
+requires-python = "==3.11.11"
+dependencies = [
+    "dataclasses>=0.8",
+    "h5py>=3.13.0",
+    "jax[cuda12]>=0.4.30",
+    "jupyterlab>=4.4.3",
+    "kaleido==0.2.1",
+    "line-profiler>=4.2.0",
+    "matplotlib>=3.9.4",
+    "notebook>=7.4.3",
+    "numpy>=2.0.2",
+    "pandas>=2.2.3",
+    "plotly>=6.1.2",
+    "polars>=1.30.0",
+    "psutil>=7.0.0",
+    "pyserde>=0.24.0",
+    "scienceplots>=2.1.1",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.13.1",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.4",
+    "tqdm>=4.67.1",
+]
+
+# JAX CUDA用のインデックスを追加
+[[tool.uv.index]]
+name = "jax-releases"
+url = "https://storage.googleapis.com/jax-releases/jax_cuda_releases.html"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["multid_rnn"]

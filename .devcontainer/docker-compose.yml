@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  multid_rnn_dev:
+    build: 
+      context: ${SOURCE_PROJECT_DIR}
+      dockerfile: .devcontainer/docker/Dockerfile
+      args:
+        - PROJECT_DIR=${DEST_PROJECT_DIR}
+        - UV_VERSION=${UV_VERSION}
+    container_name: $CONTAINER_NAME
+    image: $IMAGE_NAME
+    tty: true
+    stdin_open: true
+    volumes:
+      - ${SOURCE_PROJECT_DIR}:${DEST_PROJECT_DIR}
+    environment:
+      - JAX_ENABLE_X64=True
+      - PROJECT_DIR=${DEST_PROJECT_DIR}
+      - UV_PROJECT_ENVIRONMENT=${DEST_PROJECT_DIR}/.venv
+      - TZ=Asia/Tokyo
+    working_dir: ${DEST_PROJECT_DIR}
+    deploy:
+      resources:
+        limits:
+          cpus: "32"
+          memory: 128g
+    devices:
+      - nvidia.com/gpu=all
+              
+    
